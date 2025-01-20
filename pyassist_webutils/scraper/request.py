@@ -8,6 +8,6 @@ class RequestUtils(Utilities):
     self.get_logger(**kwargs)
     self.debug(f"Initialized: {kwargs['name']}")
 
-  def get_webpage(self, url):
+  def get_page_content(self, url):
     response = requests.get(url)
     return response.content

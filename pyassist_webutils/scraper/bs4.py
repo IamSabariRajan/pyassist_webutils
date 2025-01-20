@@ -9,5 +9,5 @@ class BS4Utils(RequestUtils):
     self.debug(f"Initialized: {kwargs['name']}")
   
   def get_webpage(self, url):
-    content = super().get_webpage(url)
+    content = self.get_page_content(url)
     return BeautifulSoup(content, features="html.parser")

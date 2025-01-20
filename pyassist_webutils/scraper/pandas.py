@@ -25,24 +25,24 @@ class PandasScrapperUtils(Selenium):
       return links
 
   def extract_single_table_from_url(self, url: str):
-    page_content = super().get_webpage(url)
+    page_content = self.get_page_content(url)
     return read_html(page_content)[0]
 
   def extract_single_table_and_links_from_url(self, url: str):
-    page_content = super().get_webpage(url)
+    page_content = self.get_page_content(url)
     links = self.get_links_from_tables(page_content)
     return read_html(page_content)[0], links
 
   def extract_multiple_tables_with_links_from_url(self, url: str):
-    page_content = self.get_webpage(url)
+    page_content = self.get_page_content(url)
     links = self.get_links_from_tables(page_content, first=False)
     return read_html(page_content), links
 
   def extract_multiple_tables_from_url(self, url: str):
-    page_content = self.get_webpage(url)
+    page_content = self.get_page_content(url)
     return read_html(page_content)
 
-  def iloc(df: DataFrame, row: int, col: int):
+  def iloc(self, df: DataFrame, row: int, col: int):
     try:
       return str(df.iloc[row, col])
     except IndexError:
