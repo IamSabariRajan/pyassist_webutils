@@ -1,7 +1,8 @@
-from .bs4 import BeautifulSoup, BS4Utils
+# from .bs4 import BeautifulSoup,
+from .selenium import BeautifulSoup, Scraper as Selenium
 from pandas import DataFrame, read_html, concat, read_csv
 
-class PandasScrapperUtils(BS4Utils):
+class PandasScrapperUtils(Selenium):
   def __init__(self, **kwargs):
     if "name" not in kwargs:
         kwargs["name"] = (f"{__class__}".split("'")[1])
@@ -40,3 +41,11 @@ class PandasScrapperUtils(BS4Utils):
   def extract_multiple_tables_from_url(self, url: str):
     page_content = self.get_webpage(url)
     return read_html(page_content)
+
+  def iloc(df: DataFrame, row: int, col: int):
+    try:
+      return str(df.iloc[row, col])
+    except IndexError:
+      return ""
+    except AttributeError:
+      return ""
