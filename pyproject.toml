@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pyassist-webutils"
-version = "0.1.1a0"
+version = "0.1.1a1"
 description = ""
 authors = ["ISabariRajan"]
 readme = "README.md"
