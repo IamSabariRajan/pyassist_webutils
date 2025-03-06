@@ -1,6 +1,6 @@
 [project]
 name = "pyassist_webutils"
-version = "0.1.1a2"
+version = "0.1.1a3"
 description = ""
 authors = [
     {name = "Your Name",email = "you@example.com"}
